@@ -1,0 +1,35 @@
+<div class="container-fluid fonty pt-5 pb-5" style="margin-top: 50px;">
+    <div class="row pl-5 pr-5">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div *ngFor="let package of packages; let i = index" class="col-lg-4 col-md-6 p-0 titulo">
+              <div class="card text-justify mb-2 mt-2 ml-1 mr-1" style="max-width: 40rem;">
+                <img class="card-img-top" src="{{package?.img}}">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a class="card-link title" >{{ package?.title }}</a>
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ package?.agency }}</h6>
+                  <p class="card-text desc">{{ package?.description.substring(0, 120) + "..." }}</p>
+                  <button [routerLink]="['./', package?._id]" class="btn btn-sm btn-info button">Manage</button>
+                  <h4 class="float-right">INR {{ package?.price }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  
+      </div>
+    </div>
+  </div>
+  
+  <div id="footer" class="container-fluid">
+    <div class="container">
+      <footer>
+        <p>© 2020 Travel Packages Limited
+        </p>
+      </footer>
+    </div>
+  </div>

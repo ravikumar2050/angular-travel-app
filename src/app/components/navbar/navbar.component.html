@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Travel Packages</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+       
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" *ngIf="!auth.sellerLoggedIn()" [routerLinkActive]="['active']" >
+            <a class="nav-link"  [routerLink]="['']"> Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="!auth.sellerLoggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['package']">Packages
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <!-- show only when logged in  -->
+          <li class="nav-item" *ngIf="auth.sellerLoggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['/agency']">Dashboard
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <!-- show only when logged in  -->
+          <li class="nav-item" *ngIf="auth.sellerLoggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['/agency/add']" >Add Package
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+  
+      
+        <ul class="navbar-nav ml-auto">
+            <!-- show only when not logged in  -->
+          <li class="nav-item" *ngIf ="!auth.loggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link"  [routerLink]= "['/login']" >Login</a>
+          </li>
+          <!-- show only when not  logged in  -->
+          <li class="nav-item" *ngIf ="!auth.loggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link"  [routerLink]="['/register']">Register</a>
+          </li>
+          <!-- show only when logged in  -->
+          <li class="nav-item" *ngIf ="auth.buyerLoggedIn()" [routerLinkActive]="['active']">
+              <a class="nav-link" [routerLink]="['']">Welcome, {{ auth.getLoggedInBuyer().firstname}}!</a>
+          </li>
+          <li class="nav-item" *ngIf ="auth.sellerLoggedIn()" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['']">Welcome, {{ auth.getLoggedInSeller().email}}!</a>
+        </li>
+          <!-- show only when logged in  -->
+          <li class="nav-item" *ngIf ="auth.sellerLoggedIn()"  [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['']" >My Account</a>
+          </li>
+          <!-- show only when logged in  -->
+          <li class="nav-item" *ngIf ="auth.loggedIn()">
+            <a class="nav-link" (click)="onLogoutClick()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

@@ -1,0 +1,101 @@
+<div id="banner" class="container-fluid">
+    <header class="masthead text-white text-center">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1>
+              <strong>Travel Packages</strong>
+            </h1>
+            <h3 class="mb-5">Swim. Trek. Climb. Dive. Hike. Fly. Run. Surf. Live.</h3>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form>
+              <div class="form-row">
+                <div class="col-12 offset-md-4 col-md-4">
+                  <button type="submit" (click)="onStartBrowsing()" class="btn btn-block btn-lg btn-primary">Start Browsing</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-credit-card m-auto text-primary"></i>
+            </div>
+            <h3>Buy Tour Packages</h3>
+            <p class="lead mb-0">Purchase tour packages from different travel agencies online!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-magnifier m-auto text-primary"></i>
+            </div>
+            <h3>Advanced Search</h3>
+            <p class="lead mb-0">Find the perfect package for your weekend getaway!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-plane m-auto text-primary"></i>
+            </div>
+            <h3>Sell Tour Packages</h3>
+            <p class="lead mb-0">Register a travel agency account to start selling!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <hr class="m-0">
+  <div id="featured" class="container-fluid pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container m-2">
+            <div class="row">
+              <div *ngFor="let package of packages;let i = index" class="col-lg-4 col-md-6 p-0">
+                <div class="card text-justify mb-2 mt-2 ml-1 mr-1" style="max-width: 40rem;">
+                  <img class="card-img-top" src={{package.img}} >
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a class="card-link title" href="#">{{package.title}}</a>
+                    </h4>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ package.agency }}</h6>
+                    <p class="card-text desc">{{ package.description.substring(0, 120) + "..." }}</p>
+                    <button  class="btn btn-sm btn-info button" [routerLink]="['/packagedetail',package._id]">Read More</button>
+                    <h4 class="float-right">INR {{package.price}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="footer" class="container-fluid">
+    <div class="container">
+      <footer>
+        <p>© 2020 Travel Packages Limited
+        </p>
+      </footer>
+    </div>
+  </div>
+  
